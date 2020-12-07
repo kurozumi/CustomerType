@@ -13,6 +13,8 @@
 namespace Plugin\CustomerType\Service\Customer\Type;
 
 
+use Eccube\Entity\Customer;
+
 /**
  * Class Regular
  * @package Plugin\CustomerType\Service\Customer\Type
@@ -21,8 +23,8 @@ namespace Plugin\CustomerType\Service\Customer\Type;
  */
 class Regular extends AbstractType
 {
-    public function verify(): bool
+    public function verify(Customer $customer): bool
     {
-        return $this->customer->getBuyTotal() < 1000;
+        return $customer->getBuyTotal() < 1000;
     }
 }

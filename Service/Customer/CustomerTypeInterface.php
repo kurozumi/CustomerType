@@ -23,7 +23,7 @@ interface CustomerTypeInterface
      *
      * 会員タイプを決定する条件を実装
      */
-    public function verify(): bool;
+    public function verify(Customer $customer): bool;
 
     /**
      * @return CustomerType
@@ -31,11 +31,4 @@ interface CustomerTypeInterface
      * 会員タイプのオブジェクトを返す。
      */
     public function getCustomerType(): CustomerType;
-
-    /**
-     * @param Customer $customer
-     *
-     * 会員タイプを決定する会員を設定します
-     */
-    public function setCustomer(Customer $customer): void;
 }

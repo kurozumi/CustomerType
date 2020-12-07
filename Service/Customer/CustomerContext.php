@@ -33,8 +33,7 @@ class CustomerContext
     public function handle(Customer $customer): CustomerType
     {
         foreach ($this->types as $type) {
-            $type->setCustomer($customer);
-            if ($type->verify()) {
+            if ($type->verify($customer)) {
                 return $type->getCustomerType();
             }
         }

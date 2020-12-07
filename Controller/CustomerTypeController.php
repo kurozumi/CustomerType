@@ -25,11 +25,11 @@ class CustomerTypeController extends AbstractController
     /**
      * @var CustomerContext
      */
-    private $context;
+    private $customerContext;
 
-    public function __construct(CustomerContext $context)
+    public function __construct(CustomerContext $customerContext)
     {
-        $this->context = $context;
+        $this->customerContext = $customerContext;
     }
 
     /**
@@ -43,7 +43,7 @@ class CustomerTypeController extends AbstractController
             throw new AccessDeniedHttpException();
         }
 
-        $customerType = $this->context->handle($this->getUser());
+        $customerType = $this->customerContext->handle($this->getUser());
         $message = sprintf("あなたは%sです。", $customerType->getName());
 
         return new Response($message);

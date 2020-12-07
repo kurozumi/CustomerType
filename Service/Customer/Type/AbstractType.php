@@ -21,11 +21,6 @@ use Plugin\CustomerType\Service\Customer\CustomerTypeInterface;
 abstract class AbstractType implements CustomerTypeInterface
 {
     /**
-     * @var Customer
-     */
-    protected $customer;
-
-    /**
      * @var CustomerTypeRepository
      */
     private $customerTypeRepository;
@@ -35,7 +30,7 @@ abstract class AbstractType implements CustomerTypeInterface
         $this->customerTypeRepository = $customerTypeRepository;
     }
 
-    abstract public function verify(): bool;
+    abstract public function verify(Customer $customer): bool;
 
     public function getCustomerType(): CustomerType
     {
@@ -44,10 +39,5 @@ abstract class AbstractType implements CustomerTypeInterface
         ]);
 
         return $customerType;
-    }
-
-    public function setCustomer(Customer $customer): void
-    {
-        $this->customer = $customer;
     }
 }
