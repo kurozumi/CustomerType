@@ -13,7 +13,7 @@
 namespace Plugin\CustomerType\DependencyInjection;
 
 
-use Plugin\CustomerType\Service\Customer\CustomerContext;
+use Plugin\CustomerType\Service\Customer\CustomerTypeContext;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
@@ -24,7 +24,7 @@ class CustomerTypeCompilerPass implements CompilerPassInterface
 
     public function process(ContainerBuilder $container)
     {
-        $context = $container->findDefinition(CustomerContext::class);
+        $context = $container->findDefinition(CustomerTypeContext::class);
 
         foreach($container->findTaggedServiceIds(self::CUSTOMR_TYPE_TAG) as $id => $tags) {
             $context->addMethodCall('addType', [new Reference($id)]);

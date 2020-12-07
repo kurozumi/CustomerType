@@ -15,7 +15,7 @@ namespace Plugin\CustomerType\Controller;
 
 use Eccube\Controller\AbstractController;
 use Eccube\Entity\Customer;
-use Plugin\CustomerType\Service\Customer\CustomerContext;
+use Plugin\CustomerType\Service\Customer\CustomerTypeContext;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,13 +23,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class CustomerTypeController extends AbstractController
 {
     /**
-     * @var CustomerContext
+     * @var CustomerTypeContext
      */
-    private $customerContext;
+    private $customerTypeContext;
 
-    public function __construct(CustomerContext $customerContext)
+    public function __construct(CustomerTypeContext $customerTypeContext)
     {
-        $this->customerContext = $customerContext;
+        $this->customerTypeContext = $customerTypeContext;
     }
 
     /**
@@ -43,7 +43,7 @@ class CustomerTypeController extends AbstractController
             throw new AccessDeniedHttpException();
         }
 
-        $customerType = $this->customerContext->handle($this->getUser());
+        $customerType = $this->customerTypeContext->getCustomerType($this->getUser());
         $message = sprintf("あなたは%sです。", $customerType->getName());
 
         return new Response($message);

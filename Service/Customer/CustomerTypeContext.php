@@ -16,7 +16,7 @@ namespace Plugin\CustomerType\Service\Customer;
 use Eccube\Entity\Customer;
 use Plugin\CustomerType\Entity\CustomerType;
 
-class CustomerContext
+class CustomerTypeContext
 {
     /** @var CustomerTypeInterface[] */
     private $types = [];
@@ -30,7 +30,7 @@ class CustomerContext
      * @param Customer $customer
      * @return CustomerType
      */
-    public function handle(Customer $customer): CustomerType
+    public function getCustomerType(Customer $customer): CustomerType
     {
         foreach ($this->types as $type) {
             if ($type->verify($customer)) {
