@@ -23,6 +23,10 @@ use Eccube\Entity\Customer;
  */
 class Silver extends AbstractType
 {
+    /**
+     * @param Customer $customer
+     * @return bool
+     */
     public function verify(Customer $customer): bool
     {
         return $customer->getBuyTotal() >= 1000 && $customer->getBuyTotal() < 5000;

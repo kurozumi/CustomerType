@@ -22,6 +22,13 @@ class CustomerTypeCompilerPass implements CompilerPassInterface
 {
     const CUSTOMR_TYPE_TAG = 'eccube.customer.type';
 
+    /**
+     * eccube.customer.typeがタグ付けされた会員タイプクラスをCustomerTypeContextに追加する
+     *
+     * @param ContainerBuilder $container
+     * @throws \Symfony\Component\DependencyInjection\Exception\InvalidArgumentException
+     * @throws \Symfony\Component\DependencyInjection\Exception\ServiceNotFoundException
+     */
     public function process(ContainerBuilder $container)
     {
         $context = $container->findDefinition(CustomerTypeContext::class);

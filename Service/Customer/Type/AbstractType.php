@@ -25,13 +25,26 @@ abstract class AbstractType implements CustomerTypeInterface
      */
     private $customerTypeRepository;
 
+    /**
+     * AbstractType constructor.
+     * @param CustomerTypeRepository $customerTypeRepository
+     */
     public function __construct(CustomerTypeRepository $customerTypeRepository)
     {
         $this->customerTypeRepository = $customerTypeRepository;
     }
 
+    /**
+     * @param Customer $customer
+     * @return bool
+     */
     abstract public function verify(Customer $customer): bool;
 
+    /**
+     * クラス名から会員タイプを取得
+     *
+     * @return CustomerType
+     */
     public function getCustomerType(): CustomerType
     {
         $customerType = $this->customerTypeRepository->findOneBy([

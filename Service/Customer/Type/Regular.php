@@ -23,6 +23,10 @@ use Eccube\Entity\Customer;
  */
 class Regular extends AbstractType
 {
+    /**
+     * @param Customer $customer
+     * @return bool
+     */
     public function verify(Customer $customer): bool
     {
         return $customer->getBuyTotal() < 1000;

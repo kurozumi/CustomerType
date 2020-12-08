@@ -27,6 +27,8 @@ class CustomerTypeContext
     }
 
     /**
+     * 条件にマッチした会員タイプを取得
+     *
      * @param Customer $customer
      * @return CustomerType
      */

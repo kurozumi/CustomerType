@@ -28,7 +28,7 @@ interface CustomerTypeInterface
     /**
      * @return CustomerType
      *
-     * 会員タイプのオブジェクトを返す。
+     * 会員タイプのオブジェクトを返す
      */
     public function getCustomerType(): CustomerType;
 }

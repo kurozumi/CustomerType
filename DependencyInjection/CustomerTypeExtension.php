@@ -19,6 +19,12 @@ use Symfony\Component\DependencyInjection\Extension\Extension;
 
 class CustomerTypeExtension extends Extension
 {
+    /**
+     * 会員タイプのStrategyインターフェースが実装されたクラスにeccube.customer.typeをタグ付け
+     *
+     * @param array $configs
+     * @param ContainerBuilder $container
+     */
     public function load(array $configs, ContainerBuilder $container)
     {
         $container->registerForAutoconfiguration(CustomerTypeInterface::class)
