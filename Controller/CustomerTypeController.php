@@ -44,7 +44,7 @@ class CustomerTypeController extends AbstractController
         }
 
         $customerType = $this->customerTypeContext->getCustomerType($this->getUser());
-        $message = sprintf("あなたは%sです。", $customerType->getName());
+        $message = trans("あなたは%name%です。", ["%name%" => $customerType->getName()]);
 
         return new Response($message);
     }

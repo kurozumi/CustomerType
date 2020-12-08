@@ -40,6 +40,6 @@ class CustomerTypeContext
             }
         }
 
-        throw new \InvalidArgumentException("会員タイプが取得できませんでした。");
+        throw new \InvalidArgumentException(trans("会員タイプが取得できませんでした。"));
     }
 }
